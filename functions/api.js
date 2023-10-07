@@ -38,9 +38,12 @@ router.post('/translate', upload.single('file'), async (req, res) => {
 
     const [response] = await translationClient.translateDocument(request);
 
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+
     res.setHeader('Content-Disposition', 'attachment; filename=seu_arquivo.pdf');
     res.setHeader('Content-Type', 'application/pdf');
-    res.setHeader('Access-Control-Allow-Origin': '*')
 
     res.end(response.documentTranslation.byteStreamOutputs[0])
 
