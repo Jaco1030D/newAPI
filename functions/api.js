@@ -48,7 +48,7 @@ router.post('/translate', upload.single('file'), async (req, res) => {
     res.end(response.documentTranslation.byteStreamOutputs[0])
 
   } catch (err) {
-    res.status(500).end(err);
+    res.status(500).end("deu errado meu amigo");
   }
 
 });
