@@ -22,9 +22,7 @@ const upload = multer({ storage: storage });
 
 router.post('/translate', upload.single('file'), async (req, res) => {
   try {
-    const translationClient = new TranslationServiceClient({
-        keyFile: process.env.GOOGLE_APPLICATION_CREDENTIALS,
-    });
+    const translationClient = new TranslationServiceClient();
 
     const targetLanguage = 'en'; // Defina o idioma de destino desejado
 
@@ -52,7 +50,7 @@ router.post('/translate', upload.single('file'), async (req, res) => {
 
   } catch (err) {
     console.log(err);
-    res.status(500).end("deu errado meu amigo");
+    res.status(500).send("deu errado meu amigo");
   }
 
 });
