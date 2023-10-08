@@ -23,7 +23,7 @@ const upload = multer({ storage: storage });
 router.post('/translate', upload.single('file'), async (req, res) => {
   try {
     const translationClient = new TranslationServiceClient({
-        keyFilename: process.env.GOOGLE_APPLICATION_CREDENTIALS,
+        key: process.env.GOOGLE_APPLICATION_CREDENTIALS,
     });
 
     const targetLanguage = 'en'; // Defina o idioma de destino desejado
