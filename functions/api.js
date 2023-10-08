@@ -1,6 +1,5 @@
 const express = require('express');
 const { TranslationServiceClient } = require('@google-cloud/translate').v3beta1;
-const serverless = require('serverless-http')
 const multer = require('multer');
 const fs = require('fs');
 const path = require('path');
@@ -58,7 +57,7 @@ router.get("/", (req, res) => {
 });
 app.use(`/.netlify/functions/api`, router);
 
-module.exports.handler = serverless(app)
+module.exports = app;
 
 // app.listen(port, () => {
 //   console.log("ola meu amigo");
