@@ -10,13 +10,9 @@ const app = express();
 require('dotenv').config();
 app.use(cors())
 
-
-const port = 5000;
 const projectId = 'eighth-effect-259620';
 
-const credentialsPath = path.join(__dirname, 'c.json');
-
-process.env.GOOGLE_APPLICATION_CREDENTIALS = path.resolve(credentialsPath);
+process.env.GOOGLE_APPLICATION_CREDENTIALS = path.join(__dirname, 'c.json');
 
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
@@ -53,7 +49,6 @@ router.post('/translate', upload.single('file'), async (req, res) => {
 });
 
 router.get("/", (req, res) => {
-    console.log(process.env.GOOGLE_APPLICATION_CREDENTIALS);
   res.json({
     hello: "hi!"
   });
