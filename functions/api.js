@@ -58,7 +58,6 @@ router.get("/", (req, res) => {
 });
 app.use(`/.netlify/functions/api`, router);
 
-module.exports = app;
 module.exports.handler = serverless(app)
 
 // app.listen(port, () => {
