@@ -10,6 +10,10 @@ const router = express.Router()
 const app = express();
 require('dotenv').config();
 app.use(cors())
+const os = require('os');
+
+// Definindo a variável de ambiente GOOGLE_APPLICATION_CREDENTIALS
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = path.join(__dirname, 'c.json');
 
 
 const port = 5000;
@@ -17,8 +21,6 @@ const projectId = 'eighth-effect-259620';
 
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
-
-process.env.GOOGLE_APPLICATION_CREDENTIALS = meuArquivo
 
 router.post('/translate', upload.single('file'), async (req, res) => {
   try {
