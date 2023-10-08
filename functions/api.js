@@ -12,12 +12,12 @@ app.use(cors())
 
 const projectId = 'eighth-effect-259620';
 
-process.env.GOOGLE_APPLICATION_CREDENTIALS = path.join(__dirname, 'c.json');
 
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
 router.post('/translate', upload.single('file'), async (req, res) => {
+  process.env.GOOGLE_APPLICATION_CREDENTIALS = path.join(__dirname, 'c.json');
   try {
     const translationClient = new TranslationServiceClient();
 
