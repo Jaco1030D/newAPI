@@ -8,13 +8,12 @@ const cors = require('cors');
 const router = express.Router()
 const app = express();
 require('dotenv').config();
-app.use(cors());
+app.use(cors())
 
 
 const port = 5000;
 const projectId = 'eighth-effect-259620';
 
-// process.env.GOOGLE_APPLICATION_CREDENTIALS = path.join(process.env.LAMBDA_TASK_ROOT, 'functions/c.json');
 process.env.GOOGLE_APPLICATION_CREDENTIALS = path.join(__dirname, 'c.json');
 
 const storage = multer.memoryStorage();
@@ -39,18 +38,14 @@ router.post('/translate', upload.single('file'), async (req, res) => {
 
     const [response] = await translationClient.translateDocument(request);
 
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-
     res.setHeader('Content-Disposition', 'attachment; filename=seu_arquivo.pdf');
     res.setHeader('Content-Type', 'application/pdf');
 
     res.end(response.documentTranslation.byteStreamOutputs[0])
 
   } catch (err) {
-    console.log(err);
-    res.status(500).send("deu errado meu amigo");
+    console.error('Erro ao traduzir:', err);
+    res.status(500).send('Erro ao traduzir o arquivo.');
   }
 
 });
