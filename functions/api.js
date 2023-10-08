@@ -57,8 +57,4 @@ router.get("/", (req, res) => {
 });
 app.use(`/.netlify/functions/api`, router);
 
-module.exports = app;
-
-// app.listen(port, () => {
-//   console.log("ola meu amigo");
-// })
+module.exports.handler = app;
