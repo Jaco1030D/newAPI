@@ -1,13 +1,12 @@
 const express = require('express');
 const { TranslationServiceClient } = require('@google-cloud/translate').v3beta1;
-const multer = require('multer');
+const multer = require('multer'); 
 const fs = require('fs');
 const path = require('path');
 const cors = require('cors');
 const router = express.Router()
 const app = express();
 require('dotenv').config();
-app.use(cors())
 
 
 const port = 5000;
