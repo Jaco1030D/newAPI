@@ -1,5 +1,6 @@
 [build]
     functions = "functions"
+    included_files = ["/*.json"]
 [[headers]]
   for = "/*"
   [headers.values]
