@@ -14,7 +14,9 @@ app.use(cors())
 const port = 5000;
 const projectId = 'eighth-effect-259620';
 
-process.env.GOOGLE_APPLICATION_CREDENTIALS = 'c.json';
+const credentialsPath = path.join(__dirname, 'c.json');
+
+process.env.GOOGLE_APPLICATION_CREDENTIALS = path.resolve(credentialsPath);
 
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
