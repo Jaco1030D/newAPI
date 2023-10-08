@@ -1,14 +1,12 @@
 const express = require('express');
 const { TranslationServiceClient } = require('@google-cloud/translate').v3beta1;
-const serverless = require('serverless-http')
-const multer = require('multer');
+const multer = require('multer'); 
 const fs = require('fs');
 const path = require('path');
 const cors = require('cors');
 const router = express.Router()
 const app = express();
 require('dotenv').config();
-app.use(cors())
 
 
 const port = 5000;
@@ -51,11 +49,11 @@ router.post('/translate', upload.single('file'), async (req, res) => {
 });
 
 router.get("/", (req, res) => {
+    console.log(process.env.GOOGLE_APPLICATION_CREDENTIALS);
   res.json({
     hello: "hi!"
   });
 });
 app.use(`/.netlify/functions/api`, router);
 
-module.exports = app;
-module.exports.handler = serverless(app)
+module.exports.handler = app;
