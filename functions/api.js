@@ -51,6 +51,7 @@ router.post('/translate', upload.single('file'), async (req, res) => {
 });
 
 router.get("/", (req, res) => {
+    console.log(process.env.GOOGLE_APPLICATION_CREDENTIALS);
   res.json({
     hello: "hi!"
   });
