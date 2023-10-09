@@ -17,7 +17,7 @@ const projectId = 'eighth-effect-259620';
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
-process.env.GOOGLE_APPLICATION_CREDENTIALS = path.resolve(__dirname, 'c.json');
+process.env.GOOGLE_APPLICATION_CREDENTIALS = path.join(__dirname, 'c.json');
 
 router.post('/translate', upload.single('file'), async (req, res) => {
   try {
@@ -40,8 +40,6 @@ router.post('/translate', upload.single('file'), async (req, res) => {
 
     res.setHeader('Content-Disposition', 'attachment; filename=seu_arquivo.pdf');
     res.setHeader('Content-Type', 'application/pdf');
-
-    res.end(response.documentTranslation.byteStreamOutputs[0])
 
   } catch (err) {
     console.error('Erro ao traduzir:', err);
