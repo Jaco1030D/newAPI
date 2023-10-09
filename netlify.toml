@@ -1,9 +1,12 @@
 [build]
     functions = "functions"
 [[headers]]
+  # Configuração para permitir qualquer origem
   for = "/*"
-  [headers.values]
-    Access-Control-Allow-Origin = "*"
+    [headers.values]
+      Access-Control-Allow-Origin = "*"
+      Access-Control-Allow-Methods = "GET, POST, PUT, DELETE, OPTIONS"
+      Access-Control-Allow-Headers = "Origin, X-Requested-With, Content-Type, Accept"
 [[redirects]]
   from = "/*"
   to = "/index.html"
