@@ -1,5 +1,5 @@
 const express = require('express');
-const { TranslationServiceClient } = require('@google-cloud/translate').v3beta1;
+const { TranslationServiceClient } = require('@google-cloud/translate').v3;
 const serverless = require('serverless-http')
 const multer = require('multer');
 const fs = require('fs');
@@ -17,7 +17,7 @@ const projectId = 'eighth-effect-259620';
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
-process.env.GOOGLE_APPLICATION_CREDENTIALS = path.join(__dirname, 'c.json');
+process.env.GOOGLE_APPLICATION_CREDENTIALS = '/var/task/src/c.json';
 
 router.post('/translate', upload.single('file'), async (req, res) => {
   try {
