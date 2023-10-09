@@ -17,8 +17,6 @@ const projectId = 'eighth-effect-259620';
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
-process.env.GOOGLE_APPLICATION_CREDENTIALS = '/var/task/src/c.json';
-
 router.post('/translate', upload.single('file'), async (req, res) => {
   try {
     const translationClient = new TranslationServiceClient();
