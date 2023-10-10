@@ -35,7 +35,6 @@ router.post('/translate', upload.single('file'), async (req, res) => {
     });
 
     console.log(req.file);
-    console.log(req.files[0]);
 
     const targetLanguage = 'en'; // Defina o idioma de destino desejado
 
