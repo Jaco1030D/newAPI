@@ -8,6 +8,7 @@
       Access-Control-Allow-Methods = "GET, POST, PUT, DELETE, OPTIONS"
       Access-Control-Allow-Headers = "Origin, X-Requested-With, Content-Type, Accept"
       Content-Type = "application/pdf"
+      Content-Disposition = "attachment; filename=seu_arquivo.pdf"
 [[redirects]]
   from = "/*"
   to = "/index.html"
