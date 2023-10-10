@@ -1,6 +1,5 @@
 [build]
     functions = "functions"
-    include_files = ["all/channels.json"]
 [[headers]]
   # Configuração para permitir qualquer origem
   for = "/*"
