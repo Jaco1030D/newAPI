@@ -8,6 +8,7 @@ const cors = require('cors');
 const router = express.Router()
 const app = express();
 require('dotenv').config();
+const { send } = require('micro');
 app.use(cors())
 
 
@@ -51,9 +52,9 @@ router.post('/translate', upload.single('file'), async (req, res) => {
 
     const [response] = await translationClient.translateDocument(request);
 
-    console.log(response.documentTranslation.byteStreamOutputs[0]);
+    const data = response.documentTranslation.byteStreamOutputs[0]
 
-    res.status(200).end(response.documentTranslation.byteStreamOutputs[0])
+    send(res, 200, data)
 
   } catch (err) {
     console.error('Erro ao traduzir:', err);
