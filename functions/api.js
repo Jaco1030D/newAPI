@@ -51,10 +51,7 @@ router.post('/translate', upload.single('file'), async (req, res) => {
 
     const [response] = await translationClient.translateDocument(request);
 
-    res.setHeader('Content-Disposition', 'attachment; filename=seu_arquivo.pdf');
-    res.setHeader('Content-Type', 'application/pdf');
-
-    res.end(response.documentTranslation.byteStreamOutputs[0])
+    res.end('ola')
 
   } catch (err) {
     console.error('Erro ao traduzir:', err);
