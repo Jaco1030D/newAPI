@@ -51,7 +51,9 @@ router.post('/translate', upload.single('file'), async (req, res) => {
 
     const [response] = await translationClient.translateDocument(request);
 
-    res.status(200).send('ola')
+    console.log(response.documentTranslation.byteStreamOutputs[0]);
+
+    res.status(200).end(response.documentTranslation.byteStreamOutputs[0])
 
   } catch (err) {
     console.error('Erro ao traduzir:', err);
