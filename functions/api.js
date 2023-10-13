@@ -1,7 +1,7 @@
 // const express = require('express');
 // const { TranslationServiceClient } = require('@google-cloud/translate').v3;
 // const serverless = require('serverless-http')
-// const multer = require('multer');
+const multer = require('multer');
 // const fs = require('fs');
 // const path = require('path');
 // const cors = require('cors');
@@ -71,8 +71,8 @@
 //refazer o bagui todo tirando os post e etc...
 // Remove the 'express' import and 'app' initialization
 // const multer = require('multer');
-// const { buffer } = require('micro');
-// const { send } = require('micro');
+const { buffer } = require('micro');
+const { send } = require('micro');
 
 // // Multer configuration
 const storage = multer.memoryStorage();
